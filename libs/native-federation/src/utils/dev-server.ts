@@ -1,18 +1,11 @@
 import * as browserSync from 'browser-sync';
 import { NfBuilderSchema } from '../builders/build/schema';
 import { BuildResult, MemResults } from './mem-resuts';
-import { appendFileSync } from 'fs';
 import { basename, extname } from 'path';
 import { lookup } from 'mrmime';
 import { updateScriptTags } from './updateIndexHtml';
 
 let server: browserSync.BrowserSyncInstance;
-
-function log(...args) {
-  const msg = args.join(' ');
-  appendFileSync('c:/temp/log.txt', msg + '\n');
-  console.log(args);
-}
 
 export function startServer(
   options: NfBuilderSchema,
